@@ -52,7 +52,7 @@ void loop() {
 
   byte sv = map(analogRead(SWELL_PIN), 0, 1023, 0, 127);
   if(abs(sv - swell_value) > 2) {
-    control_change(MIDI_CHANNEL, SWELL_CONTROL, sv);
+    control_change(MIDI_CHANNEL, SWELL_CONTROL, 127 - sv);
     swell_value = sv;
   }
 
